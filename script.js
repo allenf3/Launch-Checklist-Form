@@ -4,10 +4,8 @@ window.addEventListener("load", function() {
 
    function allFieldsEntered(values) {
       if(!values.pilotName || !values.copilotName || !values.fuelLevel || !values.cargoMass) {
-         console.log(values);
          return false;
       }
-      console.log(values);
       return true;
    }
 
@@ -22,10 +20,9 @@ window.addEventListener("load", function() {
    }
 
    function numbersForFuelAndCargo(values) {
-      if(isNaN(Number(values.fuelLevel))) {
+      if(isNaN(Number(values.fuelLevel)) || isNaN(Number(values.cargoMass))) {
          return false;
       }
-      console.log(Number(values.fuelLevel));
       return true;
    }
 
@@ -37,11 +34,9 @@ window.addEventListener("load", function() {
          fuelLevel: document.querySelector("input[name=fuelLevel]").value,
          cargoMass: document.querySelector("input[name=cargoMass]").value
       }
-      if(!allFieldsEntered(allValues) || !textForNames(allValues))
-      console.log(allFieldsEntered(allValues));
-      console.log(textForNames(allValues));
-      console.log(numbersForFuelAndCargo(allValues));
-      event.preventDefault();
+      if(!allFieldsEntered(allValues) || !textForNames(allValues) || !numbersForFuelAndCargo(allValues)) {
+         event.preventDefault();
+      }
    });
 });
 
