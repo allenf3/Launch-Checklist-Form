@@ -69,13 +69,6 @@ window.addEventListener("load", function() {
          launchStatus.style.color = "green";
       }
    });
-
-
-   
-   
-   /* This block of code shows how to format the HTML once you fetch some planetary JSON!
-   
-   */
   
   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
      response.json().then(function(data) {
@@ -95,6 +88,4 @@ window.addEventListener("load", function() {
             `
      });
   });
-  
-
 });
